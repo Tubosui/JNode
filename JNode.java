@@ -1,7 +1,7 @@
 import java.util.List;
 
 /**
- * 
+ * JSONのkeyとvalueを保持するクラス
  * @author kazuma
  * @param <T> JSONのvalue
  */
@@ -41,7 +41,7 @@ public class JNode<T>{
       StringBuffer sb = new StringBuffer();
       sb.append(k +"[");
       
-      /**Listの要素の方によって処理を変える**/
+      /**Listの要素の型によって処理を変える**/
       Object o = ((List) this.val).get(0);
       int index = o instanceof String? 0 : 1;//フラグ(booleanにしなかったのは他に型が増えた時のため)
       for(int i = 0; i<((List) this.val).size(); i++){
