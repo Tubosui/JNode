@@ -1,14 +1,14 @@
 import java.util.List;
 
 /**
- * KeyとValueを保持するクラスを定義
+ * 
  * @author kazuma
- * @param <T> JSONのvalueの型
+ * @param <T> JSONのvalue
  */
 public class JNode<T>{
   private String key;   //キー
   private T val;        //値
-  private JNode<T> next;//次の要素
+  private JNode<?> next;//次の要素
   
   /**
    * keyとvalueをセットするコンストラクタ
@@ -29,7 +29,7 @@ public class JNode<T>{
     //keyの部分
     String k = "\"" + this.key + "\":";
     
-    /** valueの型によって処理を変える **/
+    /** valueの型によって処理をかえる **/
     //Stringの場合、ダブルクウォートで囲って返す
     if (this.val instanceof String) return k + "\"" + this.val + "\"";
     
@@ -41,7 +41,7 @@ public class JNode<T>{
       StringBuffer sb = new StringBuffer();
       sb.append(k +"[");
       
-      /**Listの要素の型によって処理を変える**/
+      /**Listの要素の方によって処理を変える**/
       Object o = ((List) this.val).get(0);
       int index = o instanceof String? 0 : 1;//フラグ(booleanにしなかったのは他に型が増えた時のため)
       for(int i = 0; i<((List) this.val).size(); i++){
@@ -66,7 +66,7 @@ public class JNode<T>{
    * 次の要素を取得するメソッド(getter)
    * @return JNode(次の要素)
    */
-  public JNode<T> getNext() {
+  public JNode<?> getNext() {
     return next;
   }
 
