@@ -74,7 +74,7 @@ public class JNode<T>{
    * 渡されたJNodeを次の要素としてセットするメソッド(setter)
    * @param next JNode(次の要素)
    */
-  public void setNext(JNode<T> next) {
+  public void setNext(JNode<?> next) {
     this.next = next;
   }
   
