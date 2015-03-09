@@ -34,7 +34,7 @@ public class JNodeHandler {
    */
   @Override
   public String toString(){
-    //空の場合は空文字を返す
+    //空の場合は空を返す
     if (this.first == null) return "";
     
     //最初の要素を取得
