@@ -14,7 +14,7 @@ public class JNodeHandler {
   /**
    * JNodeを追加するメソッド
    * @param key JSONのキーなる文字列
-   * @param val JSONのバリューとなる文字列
+   * @param val JSONのバリューとなるデータ
    */
   <T> void add(String key, T val){
     //JNodeを生成して追加
