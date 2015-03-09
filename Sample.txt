@@ -37,3 +37,20 @@
 　　　        "文字":["A","B","C","D","E","F","G","H"]
 　　　       }
 }
+
+
+JNode
+keyとvalueを保持、toString()で「key:value」の形式で返す。(2つ以外に次の要素の参照も保持)
+→valueの型によって挙動を変化させることによって出力形式を変えている
+　
+　{key:value}　(valueがStringやInteger)
+　{key:{key:value}}　(valueがJNodeHandler)
+　{key:[v1,v2,v3]}　(valueがList)
+  
+JNodeHandle
+JNodeのラッパークラス
+片方向リストのような実装
+最初と最後のJNodeを保持し、addメソッドによってJNodeを追加できる。
+toString()によって最初のJNodeから順番に(JNodeの)toStringを呼び出し、その都度「,」を挿入
+
+オブジェクトが入れ後になっているような場合でも再帰的にtoStringを呼び出すことによって対応可能
