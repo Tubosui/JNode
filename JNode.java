@@ -42,17 +42,17 @@ public class JNode<T>{
       sb.append(k +"[");
       
       /**Listの要素の型によって処理を変える**/
-      Object o = ((List) this.val).get(0);
+      Object o = ((List<?>) this.val).get(0);
       int index = o instanceof String? 0 : 1;//フラグ(booleanにしなかったのは他に型が増えた時のため)
-      for(int i = 0; i<((List) this.val).size(); i++){
+      for(int i = 0; i<((List<?>) this.val).size(); i++){
         if(i != 0) sb.append(",");
         
         switch(index){
         //Stringのとき
-        case 0 : sb.append("\"" + ((List) this.val).get(i) + "\"");
+        case 0 : sb.append("\"" + ((List<?>) this.val).get(i) + "\"");
                  break;
         //String以外の時
-        case 1 : sb.append(((List) this.val).get(i).toString());
+        case 1 : sb.append(((List<?>) this.val).get(i).toString());
         }
       }
       sb.append("]");

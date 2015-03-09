@@ -5,8 +5,8 @@
  * 片方向リストっぽい感じ
  */
 public class JNodeHandler {
-  private JNode first; //最初の要素
-  private JNode last;  //最後の要素
+  private JNode<?> first; //最初の要素
+  private JNode<?> last;  //最後の要素
   
   JNodeHandler(){
   }
@@ -38,7 +38,7 @@ public class JNodeHandler {
     if (this.first == null) return "";
     
     //最初の要素を取得
-    JNode n = this.first;
+    JNode<?> n = this.first;
     StringBuffer sb = new StringBuffer();
     sb.append("{");
     boolean flag = true;//最初だけ前に「,」をつけないようにするためのフラグ
